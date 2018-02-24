@@ -2,6 +2,7 @@
 import sys
 
 
+print(sys.version_info)
 def count_sort(arr):
     spare_arr = []
     arr_half = len(arr)/2
@@ -15,7 +16,7 @@ def count_sort(arr):
     for index, values in enumerate(spare_arr):
         if len(spare_arr[index]) > 0:
             for y in spare_arr[index]:
-                print("{}".format(y), end=' ')
+                print("{}".format(y), end=" ")
     print("")
 
 
