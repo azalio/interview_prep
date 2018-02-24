@@ -1,4 +1,4 @@
-- pip install line_profiler
+- `pip install line_profiler`
   - write before function **@profile** and run:
   - `kernprof -v -l ./prog.py`
 - `python3 -m cProfile -s time ./prog.py`
