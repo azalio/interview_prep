@@ -1,3 +1,5 @@
+- https://wiki.python.org/moin/PythonSpeed/PerformanceTips
+- https://habrahabr.ru/company/mailru/blog/202832/
 - `pip install line_profiler`
   - write before function **@profile** and run:
   - `kernprof -v -l ./prog.py`
