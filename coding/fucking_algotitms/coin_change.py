@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from typing import List
 import time
+# import ipdb
 
 def coinChange(coins: List[int], amount: int):
     def dp(n):
@@ -41,14 +42,35 @@ def coinChange2(coins: List[int], amount: int):
 
     return dp(amount)
 
+def coinChange3(coins: List[int], amount: int):
+    dp = [(amount + 1)] * (amount + 1)
+    dp[0] = 0
+    for i, _ in enumerate(range(len(dp))):
+        for coin in coins:
+            if (i - coin < 0): continue
+            # ipdb.set_trace()
+            dp[i] = min(dp[i], 1 + dp[i - coin])
+    
+    # return (dp[amount] == amount + 1) ? -1 : dp[amount]
+    return -1 if dp[amount] == amount + 1 else dp[amount]
+
+start = time.time()
+result = coinChange([1,2,5], 20)
+end = time.time()
+print(end - start)
+assert result == 4
 
 
 start = time.time()
-result = coinChange([1,2,5], 30)
+result = coinChange2([1,2,5], 20)
 end = time.time()
 print(end - start)
+assert result == 4
+
 
 start = time.time()
-result = coinChange2([1,2.5], 30)
+result = coinChange3([1,2,5], 20)
 end = time.time()
 print(end - start)
+assert result == 4
+
