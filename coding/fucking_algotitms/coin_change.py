@@ -51,7 +51,6 @@ def coinChange3(coins: List[int], amount: int):
             # ipdb.set_trace()
             dp[i] = min(dp[i], 1 + dp[i - coin])
     
-    # return (dp[amount] == amount + 1) ? -1 : dp[amount]
     return -1 if dp[amount] == amount + 1 else dp[amount]
 
 start = time.time()
