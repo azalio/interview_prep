@@ -13,17 +13,21 @@ def merge_sort(not_sorted_list) -> list:
 
 def merge(list1, list2) -> list:
     res = []
-    # print(list1, list2)
+    print(list1, list2)
     i = 0
     j = 0
-    for _ in range(len(list1)):
-        if list1[i] <= list2[j]:
-            res.append(list1[i])
-            i += 1
-        else:
-            res.append(list2[j])
-            j += 1
-    # print(f"i: {i}, j: {j}")
+    max_index = len(list1) if len(list1) >= len(list2) else len(list2)
+    for _ in range(max_index):
+        try:
+            # print(f"i: {i}, j: {j}")
+            if list1[i] <= list2[j]:
+                res.append(list1[i])
+                i += 1
+            else:
+                res.append(list2[j])
+                j += 1
+        except IndexError:
+            break
     # print(f"res: {res}")
     if i <= len(list1) - 1:
         res = res + list1[i:]
@@ -33,6 +37,6 @@ def merge(list1, list2) -> list:
     return res
 
     
-not_sorted_list = [0, 0, -16, 2, 1, 3, 4, 6, 5, 7, 8,8]
+not_sorted_list = [1,3,2]
 res = merge_sort(not_sorted_list)
 print(f"result is: {res}")
