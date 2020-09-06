@@ -13,7 +13,7 @@ def merge_sort(not_sorted_list) -> list:
 
 def merge(list1, list2) -> list:
     res = []
-    print(list1, list2)
+    # print(list1, list2)
     i = 0
     j = 0
     max_index = len(list1) if len(list1) >= len(list2) else len(list2)
@@ -40,3 +40,6 @@ def merge(list1, list2) -> list:
 not_sorted_list = [1,3,2]
 res = merge_sort(not_sorted_list)
 print(f"result is: {res}")
+
+# complecity n*log(n) https://www.youtube.com/watch?v=alJswNJ4P3U
+# https://backtobackswe.com/pricing
