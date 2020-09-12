@@ -16,16 +16,18 @@ class Solution:
         mask = 10**(digits - 1) # O(1)
         # print(f"digits: {digits}")
         for _ in range(digits//2): # O(n)
+            # print(f"i: {i}, x: {x}, mask: {mask}")
             begin = x//mask # O(1)
             end = x%10 # O(1)
+            # print(f"begin: {begin}, end: {end}")
             if begin != end: # O(1)
                 return False # O(1)
             x = x%mask # O(1)
             x = x//10 # O(1)
-            mask = mask//10 # O(1)
+            mask = mask//100 # O(1)
         return True # O(1)
 
 
 obj = Solution()
-assert obj.isPalindrome(121), True
-assert obj.isPalindrome(212), False
+assert obj.isPalindrome(12321) == True
+assert obj.isPalindrome(12322) == False
