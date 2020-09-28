@@ -1,8 +1,5 @@
-#!/usr/bin/env python3
-
 class Solution:
-    def enumeratePrimes(self, n: int) -> list: # n*log(log n)
-        # https://www.geeksforgeeks.org/how-is-the-time-complexity-of-sieve-of-eratosthenes-is-nloglogn/
+    def enumeratePrimes(self, n: int) -> list:
         '''
         :type n: int
         :rtype: list of int
@@ -33,10 +30,4 @@ class Solution:
 
         prime = {k:v for k,v in prime.items() if v == True } # O(n)
         prime = list(prime.keys()) 
-        return prime
-                
-
-obj = Solution()
-n = 23
-assert obj.enumeratePrimes(n) == [2, 3, 5, 7, 11, 13, 17, 19]
-
+        return len(prime)
