@@ -4,52 +4,52 @@ import time
 g_dict = dict()
 
 class Solution:
-    def threeSum(self, l: list, s: int) -> list:
-        result_list = []
-        result_dict = dict()
+    def threeSum(self, l: list, s: int) -> list: 
+        result_list = [] # O(1)
+        result_dict = dict() # O(1)
 
-        for index, i in enumerate(l):
-            if i in result_dict.keys():
-                continue
+        for index, i in enumerate(l): # O(n^2)
+            if i in result_dict.keys(): # O(1)
+                continue # O(1)
             else:
-                req_amount = s - i
-                list_to_check = l[index+1:]
+                req_amount = s - i # O(1)
+                list_to_check = l[index+1:] # O(1)
                 possible_lists = self.two_sum(list_to_check, req_amount) # O(n)
-                if len(possible_lists):
-                    result_dict[i] = possible_lists
+                if len(possible_lists): # O(1)
+                    result_dict[i] = possible_lists # O(1)
 
-        for k, v in result_dict.items():
-            for i in v:
+        for k, v in result_dict.items(): # O(n*m)
+            for i in v: # O(m)
                 # print(f"k: {k}, v: {v}")
-                a, b = i
-                res = sorted([k, a, b])
-                if res in result_list:
-                    continue
-                result_list.append(res)
+                a, b = i # O(1)
+                res = sorted([k, a, b]) # O(1)
+                if res in result_list: # O(1)
+                    continue # O(1)
+                result_list.append(res) # O(1)
 
-        return result_list
+        return result_list # O(1)
         
 
 
-    def two_sum(self, l: list, s: int) -> list:
-        global g_dict
-        result = g_dict.get(s, None)
-        if result != None:
-            return result
+    def two_sum(self, l: list, s: int) -> list: # O(n)
+        global g_dict # O(1)
+        result = g_dict.get(s, None) # O(1)
+        if result != None: # O(1)
+            return result # O(1)
 
-        comp_dict = dict()
-        result_list = []
+        comp_dict = dict() # O(1)
+        result_list = [] # O(1)
 
-        for i in l:
-            comp = s - i
-            res = comp_dict.get(comp, None)
-            if res != None and res:
-                result_list.append([i, comp])
-                comp_dict[i] = False
+        for i in l: # O(n)
+            comp = s - i # O(1)
+            res = comp_dict.get(comp, None) # O(1)
+            if res != None and res: # O(1)
+                result_list.append([i, comp]) # O(1)
+                comp_dict[i] = False # O(1)
             else:
-                comp_dict[i] = True
-        g_dict[s] = result_list
-        return g_dict[s]
+                comp_dict[i] = True # O(1)
+        g_dict[s] = result_list # O(1)
+        return g_dict[s] # O(1)
 
 
 obj = Solution()
