@@ -1,6 +1,6 @@
 # Y
 
-- ipv6
+- ipv6 https://disk.yandex.ru/i/MAaDmVYiWX0UrQ
 - TLS
 - sim and asym cripto
 - overlayFS
