@@ -29,3 +29,23 @@ func matrixReshape(mat [][]int, r int, c int) [][]int {
 
 	return result
 }
+
+func matrixReshape2(mat [][]int, r int, c int) [][]int {
+	n := len(mat)
+	m := len(mat[0])
+	if r*c != m*n {
+		return mat
+	}
+
+	res := make([][]int, r)
+
+	for x := 0; x < r; x++ {
+		res[x] = make([]int, c)
+	}
+
+	for i := 0; i < r*c; i++ {
+		res[i/c][i%c] = mat[i/m][i%m]
+	}
+	return res
+
+}
