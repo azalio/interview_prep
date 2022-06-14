@@ -1,7 +1,7 @@
 package removeElement
 
 import (
-	"reflect"
+	"sort"
 	"testing"
 )
 
@@ -15,7 +15,7 @@ var test = []struct {
 		[]int{1},
 		0,
 		[]int{1},
-		0,
+		1,
 	},
 	{
 		[]int{3, 2, 2, 3},
@@ -26,7 +26,7 @@ var test = []struct {
 	{
 		[]int{0, 1, 2, 2, 3, 0, 4, 2},
 		2,
-		[]int{0, 1, 4, 0, 3},
+		[]int{0, 0, 1, 3, 4},
 		5,
 	},
 }
@@ -34,9 +34,33 @@ var test = []struct {
 func TestRemoveElement(t *testing.T) {
 	for _, tt := range test {
 		result := removeElement(tt.nums, tt.val)
-		if result != tt.want && !reflect.DeepEqual(tt.nums, tt.wantNums) {
-			t.Errorf("want: %d, %+v, got: %d, %+v",
-				tt.want, tt.wantNums, tt.val, tt.nums)
+
+		if tt.want != result {
+			t.Fatalf("want: %d, got: %d", tt.want, result)
+		}
+
+		sort.Ints(tt.nums[:result])
+		for i := 0; i < result; i++ {
+			if tt.nums[i] != tt.wantNums[i] {
+				t.Fatalf("wantNums: %+v, got: %+v\n", tt.wantNums, tt.nums)
+			}
+		}
+	}
+}
+
+func TestRemoveElement2(t *testing.T) {
+	for _, tt := range test {
+		result := removeElement2(tt.nums, tt.val)
+
+		if tt.want != result {
+			t.Fatalf("want: %d, got: %d", tt.want, result)
+		}
+
+		sort.Ints(tt.nums[:result])
+		for i := 0; i < result; i++ {
+			if tt.nums[i] != tt.wantNums[i] {
+				t.Fatalf("wantNums: %+v, got: %+v\n", tt.wantNums, tt.nums)
+			}
 		}
 	}
 }
