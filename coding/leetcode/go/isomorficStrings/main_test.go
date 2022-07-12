@@ -7,21 +7,21 @@ var test = []struct {
 	t    string
 	want bool
 }{
-	//{
-	//	"egg",
-	//	"add",
-	//	true,
-	//},
-	//{
-	//	"foo",
-	//	"bar",
-	//	false,
-	//},
-	//{
-	//	"paper",
-	//	"title",
-	//	true,
-	//},
+	{
+		"egg",
+		"add",
+		true,
+	},
+	{
+		"foo",
+		"bar",
+		false,
+	},
+	{
+		"paper",
+		"title",
+		true,
+	},
 	{
 		"badc",
 		"baba",
