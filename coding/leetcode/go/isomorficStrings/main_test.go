@@ -58,6 +58,15 @@ func TestIsIsomorphic2(t *testing.T) {
 	}
 }
 
+func TestIsIsomorphic3(t *testing.T) {
+	for _, tt := range test {
+		result := isIsomorphic3(tt.s, tt.t)
+		if result != tt.want {
+			t.Errorf("Got: %t, want: %t\n", result, tt.want)
+		}
+	}
+}
+
 func BenchmarkTestIsIsomorphic(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		for _, tt := range test {
@@ -73,6 +82,17 @@ func BenchmarkTestIsIsomorphic2(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		for _, tt := range test {
 			result := isIsomorphic2(tt.s, tt.t)
+			if result != tt.want {
+				b.Errorf("Got: %t, want: %t\n", result, tt.want)
+			}
+		}
+	}
+}
+
+func BenchmarkTestIsIsomorphic3(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		for _, tt := range test {
+			result := isIsomorphic3(tt.s, tt.t)
 			if result != tt.want {
 				b.Errorf("Got: %t, want: %t\n", result, tt.want)
 			}
