@@ -10,11 +10,18 @@ func rotate(nums []int, k int) {
 	}
 }
 
-//func rotate2(nums []int, k int) {
-//	if k >= len(nums) {
-//		k = k % len(nums)
-//	}
-//
-//	nums[k:], nums[:k] = nums[:k], nums[k:]
-//
-//}
+func Reverse(input []int) {
+	for i, j := 0, len(input)-1; i < j; i, j = i+1, j-1 {
+		input[i], input[j] = input[j], input[i]
+	}
+}
+
+func rotate2(nums []int, k int) {
+
+	k = k % len(nums)
+
+	Reverse(nums)
+
+	Reverse(nums[:k])
+	Reverse(nums[k:])
+}
