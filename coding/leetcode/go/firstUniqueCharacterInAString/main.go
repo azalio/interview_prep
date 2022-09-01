@@ -17,12 +17,9 @@ func firstUniqChar(s string) int {
 
 	}
 
-	//fmt.Printf("strM: %v\n", strM)
-
 	result := [2]int{-1, -1}
 
 	for _, v := range strM {
-		//fmt.Printf("v: %v\n", v)
 		if v[1] == 0 {
 			if v[0] < result[0] || result[0] == -1 {
 				result = v
@@ -30,4 +27,29 @@ func firstUniqChar(s string) int {
 		}
 	}
 	return result[0]
+}
+
+func firstUniqChar2(s string) int {
+
+	strS := make([]int, len(s), len(s))
+	strM := make(map[int32]int)
+
+	for i, c := range s {
+
+		a, ok := strM[c]
+		if ok {
+			strS[a]++
+			strS[i] = -1
+		} else {
+			strM[c] = i
+		}
+	}
+
+	for i, v := range strS {
+		if v == 0 {
+			return i
+		}
+	}
+
+	return -1
 }
