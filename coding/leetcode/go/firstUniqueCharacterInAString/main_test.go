@@ -37,3 +37,12 @@ func TestFirstUniqChar2(t *testing.T) {
 		}
 	}
 }
+
+func TestFirstUniqChar3(t *testing.T) {
+	for _, tt := range test {
+		result := firstUniqChar3(tt.s)
+		if result != tt.want {
+			t.Errorf("Want: %d, got: %d\n", tt.want, result)
+		}
+	}
+}

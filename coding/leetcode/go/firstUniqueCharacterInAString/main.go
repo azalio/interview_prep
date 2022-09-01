@@ -53,3 +53,29 @@ func firstUniqChar2(s string) int {
 
 	return -1
 }
+
+func firstUniqChar3(s string) int {
+
+	strM := make(map[int32][2]int)
+
+	for i, c := range s {
+		a, ok := strM[c]
+
+		if ok {
+			a[1]++
+		} else {
+			a[0] = i
+		}
+
+		strM[c] = a
+
+	}
+
+	for i, c := range s {
+		v := strM[c]
+		if v[1] == 0 {
+			return i
+		}
+	}
+	return -1
+}
