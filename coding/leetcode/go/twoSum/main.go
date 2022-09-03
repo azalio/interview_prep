@@ -1,7 +1,7 @@
 package twoSum
 
 func twoSum(nums []int, target int) []int {
-	result := []int{}
+	var result []int
 	h := make(map[int]int)
 
 	for i, n := range nums {

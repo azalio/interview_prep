@@ -76,3 +76,10 @@ func isValidSudoku(board [][]byte) bool {
 
 	return true
 }
+
+//func isValidSudoku2(board [][]byte) bool {
+//
+//	seen := make(map([]))
+//
+//	return true
+//}
