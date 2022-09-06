@@ -17,6 +17,16 @@ var test = []struct {
 		"leeto",
 		-1,
 	},
+	{
+		"hello",
+		"ll",
+		2,
+	},
+	{
+		"a",
+		"a",
+		0,
+	},
 }
 
 func TestStrStr(t *testing.T) {
