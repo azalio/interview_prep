@@ -29,3 +29,13 @@ func TestLongestCommonPrefix(t *testing.T) {
 		}
 	}
 }
+
+func TestLongestCommonPrefix2(t *testing.T) {
+	for _, tt := range test {
+		result := longestCommonPrefix2(tt.strs)
+		if result != tt.want {
+			t.Errorf("\nSlice is: %v\nwant: %s, got: %s\n",
+				tt.strs, tt.want, result)
+		}
+	}
+}

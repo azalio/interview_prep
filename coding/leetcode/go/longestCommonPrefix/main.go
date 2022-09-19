@@ -22,3 +22,18 @@ func longestCommonPrefix(strs []string) string {
 
 	return result
 }
+
+func longestCommonPrefix2(strs []string) string {
+
+	var result string
+	for i := 0; i < len(strs[0]); i++ {
+		for _, s := range strs {
+			if i == len(s) || s[i] != strs[0][i] {
+				return result
+			}
+		}
+		result += string(strs[0][i])
+	}
+
+	return result
+}
