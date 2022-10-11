@@ -1,5 +1,7 @@
 package follow_up_marina
 
+import "fmt"
+
 // кстати, советую еще решить похожее - есть массив,
 // в котором все числа кроме одного - по 2 раза.
 // найти единственное число
@@ -21,4 +23,14 @@ func singleNumber(nums []int) int {
 	}
 
 	return 0
+}
+
+func singleNumber2(nums []int) int {
+	var result int
+	for _, n := range nums {
+		result = result ^ n
+		fmt.Println(result)
+
+	}
+	return result
 }

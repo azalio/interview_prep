@@ -28,3 +28,12 @@ func TestSingleNumber(t *testing.T) {
 		}
 	}
 }
+
+func TestSingleNumber2(t *testing.T) {
+	for _, tt := range test {
+		result := singleNumber2(tt.nums)
+		if result != tt.want {
+			t.Errorf("Got: %d, Want: %d\n", result, tt.want)
+		}
+	}
+}
