@@ -1,4 +1,4 @@
-package _85MaxConsecutiveOnes
+package MaxConsecutiveOnes
 
 import "testing"
 
