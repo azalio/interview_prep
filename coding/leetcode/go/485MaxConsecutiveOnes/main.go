@@ -23,3 +23,14 @@ func findMaxConsecutiveOnes(nums []int) int {
 
 	return result
 }
+
+func findMaxConsecutiveOnes2(a []int) int {
+	best, crt := 0, 0
+	for _, v := range a {
+		if crt+v > best {
+			best = crt + v
+		}
+		crt = (crt + v) * v
+	}
+	return best
+}

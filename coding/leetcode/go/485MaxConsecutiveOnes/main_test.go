@@ -24,3 +24,12 @@ func TestFindMaxConsecutiveOnes(t *testing.T) {
 		}
 	}
 }
+
+func TestFindMaxConsecutiveOnes2(t *testing.T) {
+	for _, tt := range test {
+		result := findMaxConsecutiveOnes2(tt.nums)
+		if result != tt.want {
+			t.Errorf("\nGot: %d, want: %d\nArray is: %v\n", result, tt.want, tt.nums)
+		}
+	}
+}
