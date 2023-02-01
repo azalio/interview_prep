@@ -90,6 +90,20 @@ func (l *LinkedList) InsertAt(pos int, value int) {
 
 }
 
+func (l LinkedList) Search(val int) int {
+	// return node position by val
+
+	current := l.head
+	for i := 0; i < l.len; i++ {
+		if current.value == val {
+			return i
+		} else {
+			current = current.next
+		}
+	}
+	return -1
+}
+
 func (l LinkedList) PrintL() {
 
 	if l.len == 0 {
