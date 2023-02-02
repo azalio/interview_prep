@@ -111,3 +111,69 @@ func TestSearch(t *testing.T) {
 		t.Errorf("Search error, want: %d, got: %d\n", -1, nodePos)
 	}
 }
+
+func TestDeleteAt(t *testing.T) {
+	cases := []struct {
+		value int
+		pos   int
+		want  int
+	}{
+		{value: 1, pos: 0, want: 2},
+		{value: 2, pos: 0, want: 3},
+		{value: 3, pos: 0, want: 4},
+		{value: 4, pos: 0, want: 0},
+	}
+
+	l := LinkedList{}
+	for _, i := range cases {
+		l.Insert(i.value)
+	}
+	//l.PrintL()
+
+	origLen := l.len
+
+	for _, c := range cases {
+		err := l.DeleteAt(c.pos)
+		if err != nil {
+			t.Errorf("Got unexpected error: %s\n", err)
+		}
+
+		if l.len != origLen-1 {
+			t.Errorf("DeleteAt error, len: %d, want: %d\n", l.len, origLen)
+		}
+
+		if l.head.value != c.want {
+			t.Errorf("DeleteAt error, want value: %d, got: %d\n",
+				c.want, l.head.value)
+		}
+
+		origLen--
+	}
+
+	l = LinkedList{}
+
+	l.Insert(11)
+	l.Insert(22)
+	l.Insert(33)
+	l.Insert(44)
+
+	err := l.DeleteAt(1)
+	if err != nil {
+		t.Errorf("Got unexpected error: %s\n", err)
+	}
+
+	if l.len != 3 {
+		t.Errorf("DeleteAt error, len: %d, want: %d\n", l.len, 3)
+	}
+
+	if l.head.value != 11 {
+		t.Errorf("DeleteAt error, want value: %d, got: %d\n",
+			11, l.head.value)
+	}
+
+	if l.head.next.value != 33 {
+		t.Errorf("DeleteAt error, want value: %d, got: %d\n",
+			33, l.head.value)
+	}
+
+}

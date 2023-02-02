@@ -1,6 +1,7 @@
 package ll
 
 import (
+	"errors"
 	"fmt"
 )
 
@@ -102,6 +103,42 @@ func (l LinkedList) Search(val int) int {
 		}
 	}
 	return -1
+}
+
+func (l *LinkedList) DeleteAt(pos int) error {
+
+	if pos < 0 {
+		return errors.New("position can't be lower zero")
+	}
+
+	if pos >= l.len {
+		return errors.New("position can't be higher len of ll")
+	}
+
+	if l.len == 0 {
+		return errors.New("ll is empty")
+	}
+
+	if l.len == 1 {
+		l.head = &Node{}
+		l.len--
+		return nil
+	}
+
+	//fmt.Println("===============")
+	//l.PrintL()
+	//fmt.Printf("len is: %d\n", l.len)
+
+	if pos == 0 {
+		l.head = l.head.next
+	} else {
+		prevNode := l.GetNode(pos - 1)
+		nextNode := l.GetNode(pos + 1)
+		prevNode.next = nextNode
+	}
+
+	l.len--
+	return nil
 }
 
 func (l LinkedList) PrintL() {
