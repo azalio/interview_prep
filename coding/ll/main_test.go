@@ -112,6 +112,48 @@ func TestSearch(t *testing.T) {
 	}
 }
 
+func TestDeleteVal(t *testing.T) {
+	l := LinkedList{}
+
+	l.Insert(11)
+	l.Insert(22)
+	l.Insert(33)
+	l.Insert(44)
+
+	// cases
+	// - delete value that exists
+	// - delete value that not exists
+
+	cases := []struct {
+		value int
+		//pos   int
+		//want int
+	}{
+
+		{value: 11},
+		{value: 33},
+		{value: 44},
+	}
+
+	err := l.DeleteVal(22)
+	if err != nil {
+		t.Fatalf("DeleteVal error: We got not expected error")
+	}
+
+	for i, c := range cases {
+		if l.GetNode(i).value != c.value {
+			t.Errorf("DeleteVal error: got %d, want: %d\n",
+				l.GetNode(i).value, c.value)
+		}
+	}
+
+	err = l.DeleteVal(222)
+	if err == nil {
+		t.Errorf("DeleteVal error: Got nil but want an error")
+	}
+
+}
+
 func TestDeleteAt(t *testing.T) {
 	cases := []struct {
 		value int
@@ -175,5 +217,4 @@ func TestDeleteAt(t *testing.T) {
 		t.Errorf("DeleteAt error, want value: %d, got: %d\n",
 			33, l.head.value)
 	}
-
 }

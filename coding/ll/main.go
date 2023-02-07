@@ -125,10 +125,6 @@ func (l *LinkedList) DeleteAt(pos int) error {
 		return nil
 	}
 
-	//fmt.Println("===============")
-	//l.PrintL()
-	//fmt.Printf("len is: %d\n", l.len)
-
 	if pos == 0 {
 		l.head = l.head.next
 	} else {
@@ -138,6 +134,10 @@ func (l *LinkedList) DeleteAt(pos int) error {
 	}
 
 	l.len--
+	return nil
+}
+
+func (l *LinkedList) DeleteVal(val int) error {
 	return nil
 }
 
