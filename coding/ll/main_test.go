@@ -115,6 +115,11 @@ func TestSearch(t *testing.T) {
 func TestDeleteVal(t *testing.T) {
 	l := LinkedList{}
 
+	err := l.DeleteVal(222)
+	if err == nil {
+		t.Errorf("DeleteVal error: Got nil but want an error")
+	}
+
 	l.Insert(11)
 	l.Insert(22)
 	l.Insert(33)
@@ -135,7 +140,7 @@ func TestDeleteVal(t *testing.T) {
 		{value: 44},
 	}
 
-	err := l.DeleteVal(22)
+	err = l.DeleteVal(22)
 	if err != nil {
 		t.Fatalf("DeleteVal error: We got not expected error")
 	}

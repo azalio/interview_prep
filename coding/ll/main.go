@@ -91,8 +91,8 @@ func (l *LinkedList) InsertAt(pos int, value int) {
 
 }
 
+// Search returns node position by val
 func (l LinkedList) Search(val int) int {
-	// return node position by val
 
 	current := l.head
 	for i := 0; i < l.len; i++ {
@@ -138,7 +138,19 @@ func (l *LinkedList) DeleteAt(pos int) error {
 }
 
 func (l *LinkedList) DeleteVal(val int) error {
-	return nil
+
+	if l.len == 0 {
+		return errors.New("ll is empty")
+	}
+
+	nodePos := l.Search(val)
+	if nodePos == -1 {
+		return errors.New("value not found")
+	}
+
+	err := l.DeleteAt(nodePos)
+	return err
+
 }
 
 func (l LinkedList) PrintL() {
