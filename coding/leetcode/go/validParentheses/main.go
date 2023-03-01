@@ -68,3 +68,35 @@ func isValid(s string) bool {
 
 	return true
 }
+
+func isValid2(s string) bool {
+
+	pMap := make(map[string]string)
+	pMap["]"] = "["
+	pMap["}"] = "{"
+	pMap[")"] = "("
+
+	var stack []string
+
+	for _, c := range s {
+		pResult, inMap := pMap[string(c)]
+		if inMap {
+			if len(stack) == 0 {
+				return false
+			}
+			if stack[len(stack)-1] == pResult {
+				stack = stack[:len(stack)-1]
+			} else {
+				return false
+			}
+		} else {
+			stack = append(stack, string(c))
+		}
+	}
+
+	if len(stack) != 0 {
+		return false
+	}
+
+	return true
+}
