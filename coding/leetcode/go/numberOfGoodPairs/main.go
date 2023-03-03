@@ -28,3 +28,14 @@ func numIdenticalPairs2(nums []int) int {
 
 	return num
 }
+
+func numIdenticalPairs3(nums []int) int {
+	num := 0
+	numMap := [101]int{}
+	for _, n := range nums {
+		num += numMap[n]
+		numMap[n]++
+	}
+
+	return num
+}

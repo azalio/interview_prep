@@ -39,3 +39,13 @@ func TestNumIdenticalPairs2(t *testing.T) {
 		}
 	}
 }
+
+func TestNumIdenticalPairs3(t *testing.T) {
+	for _, tt := range test {
+		result := numIdenticalPairs3(tt.nums)
+		if result != tt.want {
+			t.Errorf("func TestNumIdenticalPairs3\nnums: %v\nwant: %d,"+
+				" get: %d\n", tt.nums, tt.want, result)
+		}
+	}
+}
