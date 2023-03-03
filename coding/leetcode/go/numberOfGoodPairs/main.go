@@ -22,9 +22,7 @@ func numIdenticalPairs2(nums []int) int {
 	num := 0
 	numMap := make(map[int]int)
 	for _, n := range nums {
-		if _, exists := numMap[n]; exists {
-			num += numMap[n]
-		}
+		num += numMap[n]
 		numMap[n]++
 	}
 
